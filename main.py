@@ -329,7 +329,7 @@ def onmessage(update,bot:ObigramClient):
                 except:
                    bot.sendMessage(update.message.chat.id,'❌Error en el comando /zips size❌')
                 return
-        if '/account' in msgText:
+        if '/acc' in msgText:
             try:
                 account = str(msgText).split(' ',2)[1].split(',')
                 user = account[0]
@@ -475,13 +475,8 @@ def onmessage(update,bot:ObigramClient):
         thread.store('msg',message)
 
         if '/start' in msgText:
-            start_msg = 'Bienvenido 👋🏻 a FreeDowload_v7.0\n\n'
-            start_msg+= 'Desarrollador: @LAES2002\n'
-            start_msg+= '🔄 Cambios:\n'
-            start_msg+= '✅ Implementacion de proxy para mayor velocidad de subida.\n'
-            start_msg+= '✅ Cambios en la interfaz.\n'
-            start_msg+= '✅ Mayor eficacia y estabilidad del servicio.\n'
-            start_msg+= 'Si eres nuevo y no sabe usar el bot revise el canal un tutorial detallado: @soportedowloader\n\n'
+            start_msg = 'Bienvenido 👋🏻 a FreeDowload\n\n'
+            start_msg+= 'Desarrollador: @Stvz20'
             start_msg+= 'Eres nuestra razon de ser 😊 Gracias por Elegirnos 😊❤️\n'
             bot.editMessageText(message,start_msg)
         elif '/files' == msgText and user_info['cloudtype']=='moodle':
