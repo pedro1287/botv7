@@ -359,7 +359,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /host moodlehost❌')
             return
-        if '/repoid' in msgText:
+        if '/repo' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 repoid = int(cmd[1])
@@ -411,7 +411,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /cloud (moodle or cloud)❌')
             return
-        if '/uptype' in msgText:
+        if '/up' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 type = cmd[1]
@@ -556,7 +556,7 @@ def main():
     bot_token = os.environ.get('bot_token')
 
     #set in debug
-    bot_token = '5602201751:AAHgIIS6xqffDeXWf6C_YsHAUu8h3z9A0Eo'
+    bot_token = '5657254628:AAGEk9XYHgt0Ryu0dJDnc0ge4KwBCSmvBLk'
 
     bot = ObigramClient(bot_token)
     bot.onMessage(onmessage)
