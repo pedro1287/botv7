@@ -452,7 +452,7 @@ def onmessage(update,bot:ObigramClient):
 
         if '/start' in msgText:
             start_msg = 'Bienvenido 👋🏻 a FreeDowload\n\n'
-            start_msg+= 'Desarrollador: @Stvz20/n'
+            start_msg+= 'Desarrollador: @Stvz20\n'
             start_msg+= 'Eres nuestra razon de ser 😊 Gracias por Elegirnos 😊❤️\n'
             bot.editMessageText(message,start_msg)
         elif '/file_view' == msgText and user_info['cloudtype']=='moodle':
