@@ -305,7 +305,7 @@ def onmessage(update,bot:ObigramClient):
         # end
 
         # comandos de usuario
-        if '/login' in msgText:
+        if '/loginjxkdkdkdkdkk' in msgText:
             tuto = open('tuto.txt','r')
             bot.sendMessage(update.message.chat.id,tuto.read())
             tuto.close()
@@ -373,31 +373,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /repo id❌')
             return
-        if '/tokenize_on' in msgText:
-            try:
-                getUser = user_info
-                if getUser:
-                    getUser['tokenize'] = 1
-                    jdb.save_data_user(username,getUser)
-                    jdb.save()
-                    statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-                    bot.sendMessage(update.message.chat.id,statInfo)
-            except:
-                bot.sendMessage(update.message.chat.id,'❌Error en el comando /tokenize state❌')
-            return
-        if '/tokenize_off' in msgText:
-            try:
-                getUser = user_info
-                if getUser:
-                    getUser['tokenize'] = 0
-                    jdb.save_data_user(username,getUser)
-                    jdb.save()
-                    statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-                    bot.sendMessage(update.message.chat.id,statInfo)
-            except:
-                bot.sendMessage(update.message.chat.id,'❌Error en el comando /tokenize state❌')
-            return
-        if '/cloud' in msgText:
+        if '/cloudkfldldkdkdldmndndjdj' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 repoid = cmd[1]
@@ -476,10 +452,10 @@ def onmessage(update,bot:ObigramClient):
 
         if '/start' in msgText:
             start_msg = 'Bienvenido 👋🏻 a FreeDowload\n\n'
-            start_msg+= 'Desarrollador: @Stvz20'
+            start_msg+= 'Desarrollador: @Stvz20/n'
             start_msg+= 'Eres nuestra razon de ser 😊 Gracias por Elegirnos 😊❤️\n'
             bot.editMessageText(message,start_msg)
-        elif '/files' == msgText and user_info['cloudtype']=='moodle':
+        elif '/file_view' == msgText and user_info['cloudtype']=='moodle':
              proxy = ProxyCloud.parse(user_info['proxy'])
              client = MoodleClient(user_info['moodle_user'],
                                    user_info['moodle_password'],
@@ -528,6 +504,40 @@ def onmessage(update,bot:ObigramClient):
                 bot.editMessageText(message,'Archivo Borrado 🦶')
             else:
                 bot.editMessageText(message,'❌Error y Causas🧐\n1-Revise su Cuenta\n2-Servidor Desabilitado: '+client.path)
+        elif '/file_delete' in msgText and user_info['cloudtype']=='moodle':
+            contador = 0
+            eliminados = 0
+            bot.editMessageText(message,'Eliminadl Todos Los Archivos Subidos.Por Favor Espere 🔎...')
+            proxy = ProxyCloud.parse(user_info['proxy'])
+            client = MoodleClient(user_info['moodle_user'],
+                                user_info['moodle_password'],
+                                user_info['moodle_host'],
+                                user_info['moodle_repo_id'],
+                                proxy=proxy)
+            loged = client.login()
+            prueba = client.getEvidences()
+            if len(prueba) == 0:
+                bot.sendMessage(update.message.chat.id,'La Nube está vacia')
+                return 
+            try:
+                for contador in range(50):
+                    proxy = ProxyCloud.parse(user_info['proxy'])
+                    client = MoodleClient(user_info['moodle_user'],
+                                    user_info['moodle_password'],
+                                    user_info['moodle_host'],
+                                    user_info['moodle_repo_id'],
+                                    proxy=proxy)
+                    loged = client.login()
+                    if loged:               
+                            evfile = client.getEvidences()[0]
+                            client.deleteEvidence(evfile)
+                            eliminados += 1
+                            bot.sendMessage(update.message.chat.id,'Archivo ' +str(eliminados)+' Borrado 🚫')                            
+                    else:
+                        bot.sendMessage(update.message.chat.id,'❌Error y Causas🧐\n1-Revise su Cuenta\n2-Servidor Desabilitado: '+client.path)
+                bot.sendMessage(update.message.chat.id,'Se eliminaron Todos Los Archivos ')
+            except:
+                bot.sendMessage(update.message.chat.id,'Cantidad de Archivos Eliminados  '+str(eliminados))
         elif 'http' in msgText:
             url = msgText
             ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb)
