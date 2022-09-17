@@ -507,7 +507,7 @@ def onmessage(update,bot:ObigramClient):
         elif '/file_delete' in msgText and user_info['cloudtype']=='moodle':
             contador = 0
             eliminados = 0
-            bot.editMessageText(message,'Eliminadl Todos Los Archivos Subidos.Por Favor Espere 🔎...')
+            bot.editMessageText(message,'Eliminado 🚫 Todos Los Archivos Subidos.\nPor Favor Espere 🔎...')
             proxy = ProxyCloud.parse(user_info['proxy'])
             client = MoodleClient(user_info['moodle_user'],
                                 user_info['moodle_password'],
@@ -537,7 +537,7 @@ def onmessage(update,bot:ObigramClient):
                         bot.sendMessage(update.message.chat.id,'❌Error y Causas🧐\n1-Revise su Cuenta\n2-Servidor Desabilitado: '+client.path)
                 bot.sendMessage(update.message.chat.id,'Se eliminaron Todos Los Archivos ')
             except:
-                bot.sendMessage(update.message.chat.id,'Cantidad de Archivos Eliminados  '+str(eliminados))
+                bot.sendMessage(update.message.chat.id,'Cantidad de Archivos Eliminados🚫:  '+str(eliminados))
         elif 'http' in msgText:
             url = msgText
             ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb)
