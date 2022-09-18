@@ -3,6 +3,7 @@ from pyobigram.client import ObigramClient,inlineQueryResultArticle
 from MoodleClient import MoodleClient
 
 from JDatabase import JsonDatabase
+import shortener
 import zipfile
 import os
 import infos
@@ -23,6 +24,11 @@ import tlmedia
 import S5Crypto
 
 
+def sign_url(token: str, url: URL):
+    query: dict = dict(url.query)
+    query["token"] = token
+    path = "webservice" + url.path
+    return url.with_path(path).with_query(query)
 
 def downloadFile(downloader,filename,currentBits,totalBits,speed,time,args):
     try:
@@ -276,6 +282,24 @@ def onmessage(update,bot:ObigramClient):
                     bot.sendMessage(update.message.chat.id,'❌Error en el comando /adduser username❌')
             else:
                 bot.sendMessage(update.message.chat.id,'❌No Tiene Permiso❌')
+            return
+        if '/shorturl' in msgText:
+            isadmin = jdb.is_admin(username)
+            if isadmin:
+                try:
+                    for user in jdb.items:
+                        if jdb.items[user]['urlshort']==0:
+                            jdb.items[user]['urlshort'] = 1
+                            continue
+                        if jdb.items[user]['urlshort']==1:
+                            jdb.items[user]['urlshort'] = 0
+                            continue
+                    jdb.save()
+                    bot.sendMessage(update.message.chat.id,'✅ShortUrl Cambiado✅')
+                    statInfo = infos.createStat(username, user_info, jdb.is_admin(username))
+                    bot.sendMessage(update.message.chat.id, statInfo)
+                except:
+                    bot.sendMessage(update.message.chat.id,'❌Error en el comando /banuser username❌')
             return
         if '/banuser' in msgText:
             isadmin = jdb.is_admin(username)
