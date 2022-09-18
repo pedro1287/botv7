@@ -3,7 +3,6 @@ from pyobigram.client import ObigramClient,inlineQueryResultArticle
 from MoodleClient import MoodleClient
 
 from JDatabase import JsonDatabase
-import shortener
 import zipfile
 import os
 import infos
@@ -22,14 +21,6 @@ import ProxyCloud
 import socket
 import tlmedia
 import S5Crypto
-from yarl import URL
-
-
-def sign_url(token: str, url: URL):
-    query: dict = dict(url.query)
-    query["token"] = token
-    path = "webservice" + url.path
-    return url.with_path(path).with_query(query)
 
 def downloadFile(downloader,filename,currentBits,totalBits,speed,time,args):
     try:
