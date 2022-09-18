@@ -22,6 +22,7 @@ import ProxyCloud
 import socket
 import tlmedia
 import S5Crypto
+from yarl import URL
 
 
 def sign_url(token: str, url: URL):
