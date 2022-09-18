@@ -188,12 +188,6 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
         else:
             for data in client:
                 files.append({'name':data['name'],'directurl':data['url']})
-        if user_info['urlshort']==1:
-            if len(files)>0:
-                i = 0
-                while i < len(files):
-                    files[i]['directurl'] = shortener.short_url(files[i]['directurl'])
-                    i+=1
 
         bot.deleteMessage(message.chat.id,message.message_id)
         finishInfo = infos.createFinishUploading(file,file_size,max_file_size,file_upload_count,file_upload_count,findex)
