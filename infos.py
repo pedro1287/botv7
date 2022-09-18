@@ -136,4 +136,9 @@ def createStat(username,userdata,isadmin):
        tokenize = 'SI'
     msg+= '🛠 Proxy : ' + proxy + '\n'
     msg+= '⚙️ Tokenize : ' + tokenize + '\n\n'
+    shorturl = (userdata['urlshort'] == 1)
+    shortener = '❌'
+    if shorturl:
+       shortener = '✅'
+    msg += '🔌ShortUrl : ' + shortener + '\n\n'
     return msg
