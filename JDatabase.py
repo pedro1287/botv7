@@ -37,8 +37,7 @@ class JsonDatabase(object):
                      'zips': 7,
                      'uploadtype':'evidence',
                      'proxy':'socks5://KDGIJIYFJDLIFKYFDEGDYKDJEJRHHHLEHKGJ',
-                     'tokenize':0,
-                     'urlshort':0}
+                     'tokenize':0}
 
     def create_admin(self,name):
         self.items[name] = {'dir': '',
@@ -51,8 +50,7 @@ class JsonDatabase(object):
                      'zips': 100,
                      'uploadtype':'evidence',
                      'proxy':'',
-                     'tokenize':0,
-                     'urlshort':0}
+                     'tokenize':0}
 
     def remove(self,name):
         try:
