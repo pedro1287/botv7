@@ -36,8 +36,8 @@ def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
     msg+= '⏰ Tiempo Restante: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
     msg = '⏬ Descargando.......\n'
-    msg += '📃   Nombre  : '+filename+'\n'
-    msg += text_progres(currentBits,totalBits)+'\n'
+    msg += '📃   Nombre  : '+filename+''
+    msg += text_progres(currentBits,totalBits)+''
     msg += '↔️   Progreso: '+sizeof_fmt(currentBits)+' • '+sizeof_fmt(totalBits)+' -- '+str(porcent(currentBits,totalBits))+'%\n'
     msg += '⏱  Velocidad: '+sizeof_fmt(speed)+'/s\n'
     msg+= '⏰ T.Restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
@@ -80,13 +80,13 @@ def createFinishUploading(filename,filesize,split_size,current,count,findex):
     msg+= '📁 Tamaño Total  : ' + str(sizeof_fmt(filesize))+'\n'
     msg+= '📂 Tamaño Partes : ' + str(sizeof_fmt(split_size))+'\n'
     msg+= '📂 Partes Subidas: ' + str(current) + '/' + str(count) +'\n\n'
-    msg+= '🗑 Borrar Archivo: ' + '/del_'+str(findex)
+    msg+= '🗑 Borrar Archivo: ' + '/file_delete'+str(findex)
     return msg
 
 def createFileMsg(filename,files):
     import urllib
     if len(files)>0:
-        msg= '<b>🖇Enlaces🖇</b>\n'
+        msg= '<b>🖇Links🖇</b>\n'
         for f in files:
             url = urllib.parse.unquote(f['directurl'],encoding='utf-8', errors='replace')
             #msg+= '<a href="'+f['url']+'">🔗' + f['name'] + '🔗</a>'
@@ -137,3 +137,9 @@ def createStat(username,userdata,isadmin):
     msg+= '🛠 Proxy : ' + proxy + '\n'
     msg+= '⚙️ Tokenize : ' + tokenize + '\n\n'
     return msg
+def createStat(username,userdata,isadmin):
+    from pyobigram.utils import sizeof_fmt
+    msg = '⚙️Proxy Activado ✅⚙️\n\n'
+    msg+= '@' + str(username)+'\n'
+    return msg
+
