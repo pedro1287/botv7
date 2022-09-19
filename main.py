@@ -373,20 +373,6 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /repo id❌')
             return
-        if '/cloudkfldldkdkdldmndndjdj' in msgText:
-            try:
-                cmd = str(msgText).split(' ',2)
-                repoid = cmd[1]
-                getUser = user_info
-                if getUser:
-                    getUser['cloudtype'] = repoid
-                    jdb.save_data_user(username,getUser)
-                    jdb.save()
-                    statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-                    bot.sendMessage(update.message.chat.id,statInfo)
-            except:
-                bot.sendMessage(update.message.chat.id,'❌Error en el comando /cloud (moodle or cloud)❌')
-            return
         if '/up' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
@@ -401,10 +387,10 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /uptype (typo de subida (evidence,draft,blog))❌')
             return
-        if '/proxy' in msgText:
+        if '/set_proxy' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
-                proxy = cmd[1]
+                proxy = os.environ.get('bot_token')
                 getUser = user_info
                 if getUser:
                     getUser['proxy'] = proxy
@@ -417,20 +403,6 @@ def onmessage(update,bot:ObigramClient):
                     user_info['proxy'] = ''
                     statInfo = infos.createStat(username,user_info,jdb.is_admin(username))
                     bot.sendMessage(update.message.chat.id,statInfo)
-            return
-        if '/dir' in msgText:
-            try:
-                cmd = str(msgText).split(' ',2)
-                repoid = cmd[1]
-                getUser = user_info
-                if getUser:
-                    getUser['dir'] = repoid + '/'
-                    jdb.save_data_user(username,getUser)
-                    jdb.save()
-                    statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-                    bot.sendMessage(update.message.chat.id,statInfo)
-            except:
-                bot.sendMessage(update.message.chat.id,'❌Error en el comando /dir folder❌')
             return
         if '/cancel_' in msgText:
             try:
