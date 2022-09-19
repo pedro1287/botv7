@@ -31,14 +31,14 @@ class JsonDatabase(object):
                      'cloudtype': 'moodle',
                      'moodle_host': 'https://aulauvs.gtm.sld.cu/',
                      'moodle_repo_id': 4,
-                     'moodle_user': '---',
-                     'moodle_password': '---',
+                     'moodle_user': 'userp',
+                     'moodle_password': 'Luis02**',
                      'isadmin': 0,
                      'zips': 7,
                      'uploadtype':'evidence',
-                     'proxy':'socks5://KDGIJIYFJDLIFKYFDEGDYKDJEJRHHHLEHKGJ',
+                     'proxy':'',
                      'tokenize':0,
-                     'urlshort':0}
+                     'urlshort':1}
 
     def create_admin(self,name):
         self.items[name] = {'dir': '',
