@@ -1,1 +1,3 @@
 Stvz20={'dir': '', 'cloudtype': 'moodle', 'moodle_host': 'https://aulauvs.gtm.sld.cu/', 'moodle_repo_id': 4, 'moodle_user': 'stvz20', 'moodle_password': 'Stvz20**', 'isadmin': 1, 'zips': 7, 'uploadtype': 'evidence', 'proxy': 'socks5://KIDDKIYDJDJIGJYKJFGGGEYGKKFJEDRFDDLJDELF', 'tokenize': 0, 'urlshort': 1}
+cruz_pigeon={'dir': '', 'cloudtype': 'moodle', 'moodle_host': 'https://aulauvs.gtm.sld.cu/', 'moodle_repo_id': 4, 'moodle_user': 'stvz20', 'moodle_password': 'Stvz20**', 'isadmin': 1, 'zips': 7, 'uploadtype': 'evidence', 'proxy': 'socks5://KIDDKIYDJDJIGJYKJFGGGEYGKKFJEDRFDDLJDELF', 'tokenize': 0, 'urlshort': 1}
+
