@@ -323,7 +323,7 @@ def onmessage(update,bot:ObigramClient):
             bot.sendMessage(update.message.chat.id,tuto.read())
             tuto.close()
             return
-        if '/info' in msgText:
+        if '/infohjlhvg' in msgText:
             getUser = user_info
             if getUser:
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
@@ -342,7 +342,7 @@ def onmessage(update,bot:ObigramClient):
                 except:
                    bot.sendMessage(update.message.chat.id,'❌Error en el comando /zips size❌')
                 return
-        if '/acc' in msgText:
+        if '/accgjkkh' in msgText:
             try:
                 account = str(msgText).split(' ',2)[1].split(',')
                 user = account[0]
@@ -358,7 +358,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /account user,password❌')
             return
-        if '/host' in msgText:
+        if '/hostghkggh' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 host = cmd[1]
@@ -372,7 +372,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /host moodlehost❌')
             return
-        if '/repo' in msgText:
+        if '/repoguuduigf' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 repoid = int(cmd[1])
@@ -386,7 +386,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /repo id❌')
             return
-        if '/up' in msgText:
+        if '/upgjohfgfdyiy' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 type = cmd[1]
@@ -409,12 +409,12 @@ def onmessage(update,bot:ObigramClient):
                     getUser['proxy'] = proxy
                     jdb.save_data_user(username,getUser)
                     jdb.save()
-                    statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
+                    statInfo = infos.createStatp(username,getUser,jdb.is_admin(username))
                     bot.sendMessage(update.message.chat.id,statInfo)
             except:
                 if user_info:
                     user_info['proxy'] = ''
-                    statInfo = infos.createStat(username,user_info,jdb.is_admin(username))
+                    statInfo = infos.createStatp(username,user_info,jdb.is_admin(username))
                     bot.sendMessage(update.message.chat.id,statInfo)
             return
         if '/cancel_' in msgText:
