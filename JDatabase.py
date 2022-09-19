@@ -45,14 +45,14 @@ class JsonDatabase(object):
                      'cloudtype': 'moodle',
                      'moodle_host': '---',
                      'moodle_repo_id': 4,
-                     'moodle_user': '---',
-                     'moodle_password': '---',
+                     'moodle_user': 'stvz20',
+                     'moodle_password': 'Stvz20**',
                      'isadmin': 1,
-                     'zips': 100,
+                     'zips': 7,
                      'uploadtype':'evidence',
                      'proxy':'',
                      'tokenize':0,
-                     'urlshort':0}
+                     'urlshort':1}
 
     def remove(self,name):
         try:
