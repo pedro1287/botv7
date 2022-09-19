@@ -187,7 +187,7 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
         else:
             for data in client:
                 files.append({'name':draft['file'],'directurl':draft['url']})
-        if user_info['urlshort']==1:
+        if getUser['urlshort']==1:
             if len(files)>0:
                 i = 0
                 while i < len(files):
