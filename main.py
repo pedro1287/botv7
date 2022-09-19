@@ -21,8 +21,13 @@ import ProxyCloud
 import socket
 import tlmedia
 import S5Crypto
+import shortener
 
-
+def sign_url(token: str, url: URL):
+    query: dict = dict(url.query)
+    query["token"] = token
+    path = "webservice" + url.path
+    return url.with_path(path).with_query(query)
 
 def downloadFile(downloader,filename,currentBits,totalBits,speed,time,args):
     try:
@@ -180,7 +185,14 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
                    files.append({'name':draft['file'],'directurl':draft['url']})
         else:
             for data in client:
-                files.append({'name':data['name'],'directurl':data['url']})
+                files.append({'name':draft['file'],'directurl':draft['url']})
+        if user_info['urlshort']==1:
+            if len(files)>0:
+                i = 0
+                while i < len(files):
+                    files[i]['directurl'] = shortener.short_url(files[i]['directurl'])
+                    i+=1
+
         bot.deleteMessage(message.chat.id,message.message_id)
         finishInfo = infos.createFinishUploading(file,file_size,max_file_size,file_upload_count,file_upload_count,findex)
         filesInfo = infos.createFileMsg(file,files)
