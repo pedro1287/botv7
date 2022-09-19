@@ -137,7 +137,7 @@ def createStat(username,userdata,isadmin):
     msg+= '🛠 Proxy : ' + proxy + '\n'
     msg+= '⚙️ Tokenize : ' + tokenize + '\n\n'
     return msg
-def createStat(username,userdata,isadmin):
+def createStatp(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
     msg = '⚙️Proxy Activado ✅⚙️\n\n'
     msg+= '@' + str(username)+'\n'
