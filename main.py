@@ -22,6 +22,7 @@ import socket
 import tlmedia
 import S5Crypto
 import shortener
+from yarl import URL
 
 def sign_url(token: str, url: URL):
     query: dict = dict(url.query)
