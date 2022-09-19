@@ -390,7 +390,7 @@ def onmessage(update,bot:ObigramClient):
         if '/set_proxy' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
-                proxy = os.environ.get('bot_token')
+                proxy = os.environ.get('proxy')
                 getUser = user_info
                 if getUser:
                     getUser['proxy'] = proxy
