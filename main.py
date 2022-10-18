@@ -346,7 +346,7 @@ def onmessage(update,bot:ObigramClient):
                 except:
                    bot.sendMessage(update.message.chat.id,'❌Error en el comando /zips size❌')
                 return
-        if '/accgjkkh' in msgText:
+        if '/acc' in msgText:
             try:
                 account = str(msgText).split(' ',2)[1].split(',')
                 user = account[0]
@@ -362,7 +362,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /account user,password❌')
             return
-        if '/hostghkggh' in msgText:
+        if '/host' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 host = cmd[1]
@@ -376,7 +376,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /host moodlehost❌')
             return
-        if '/repoguuduigf' in msgText:
+        if '/repo' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 repoid = int(cmd[1])
@@ -390,7 +390,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /repo id❌')
             return
-        if '/upgjohfgfdyiy' in msgText:
+        if '/up' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 type = cmd[1]
