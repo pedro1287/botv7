@@ -56,30 +56,25 @@ def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
     msg+= '📶Velocidad: ' + str(sizeof_fmt(speed))+'/s\n'
     msg+= '🕐Tiempo: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
-    msg = '⏫ Subiendo Archivo(s)☁...\n\n'
-    msg += '📃   Nombre  : '+filename+'\n'
+    msg = 'Subiendo Archivo☁...\n'
+    msg += '🗂 Archive: '+filename+'\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
         msg+= '📃 Subiendo: ' + str(filename)+'\n'
+    msg += '⏳️ Progreso: '+sizeof_fmt(currentBits)+' • '+sizeof_fmt(totalBits)+' -- '+str(porcent(currentBits,totalBits))+'%\n'
+    msg += '⚡️ Velocidad: '+sizeof_fmt(speed)+'/s\n\n'
+    msg += '⏳️T.Restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n'
     msg += text_progres(currentBits,totalBits)+'\n'
-    msg += '↔️   Progreso: '+sizeof_fmt(currentBits)+' • '+sizeof_fmt(totalBits)+' -- '+str(porcent(currentBits,totalBits))+'%\n\n'
-    msg += '⏱  Velocidad: '+sizeof_fmt(speed)+'/s\n\n'
-    msg += '⏰ T.Restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     return msg
 def createCompresing(filename,filesize,splitsize):
-    msg = 'Comprimiendo 🔄 ... \n\n'
-    msg+= '📃 Nombre: ' + str(filename)+'\n'
-    msg+= '📁 Tamaño Total: ' + str(sizeof_fmt(filesize))+'\n'
-    msg+= '📂 Tamaño Partes: ' + str(sizeof_fmt(splitsize))+'\n'
-    msg+= '💾 Cantidad Partes: ' + str(round(int(filesize/splitsize)+1,1))+'\n\n'
+    msg = 'Comprimiendo 🔄... ' + str(round(int(filesize/splitsize)+1,1))+' de ' + str(sizeof_fmt(splitsize))+'\n\n'
     return msg
+
 def createFinishUploading(filename,filesize,split_size,current,count,findex):
-    msg = '💚 Archivo(s) Subido(s) Con Éxito 💚\n\n'
-    msg+= '📃    Nombre     : ' + str(filename)+'\n'
-    msg+= '📁 Tamaño Total  : ' + str(sizeof_fmt(filesize))+'\n'
-    msg+= '📂 Tamaño Partes : ' + str(sizeof_fmt(split_size))+'\n'
-    msg+= '📂 Partes Subidas: ' + str(current) + '/' + str(count) +'\n\n'
+    msg = 'Archivo Subido ✅\n'
+    msg+= '🗂Archivo: ' + str(filename)+'\n'
+    msg+= '📀Tamaño Total  : ' + str(sizeof_fmt(filesize))+'\n'
     msg+= '🗑 Borrar Archivo: ' + '/file_delete'+str(findex)
     return msg
 
