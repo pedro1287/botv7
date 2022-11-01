@@ -38,7 +38,6 @@ def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
     msg += '📀'+sizeof_fmt(currentBits)+' • '+sizeof_fmt(totalBits)+' -- '+str(porcent(currentBits,totalBits))+'%\n'
     msg += '⚡️Speed: '+sizeof_fmt(speed)+'/s\n'
     msg+= '⏳️ETA: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
-        msg += text_progres(currentBits,totalBits)+''
 
     if tid!='':
         msg+= '/cancelar_' + tid
@@ -62,7 +61,6 @@ def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
     msg += '📀'+sizeof_fmt(currentBits)+' • '+sizeof_fmt(totalBits)+' -- '+str(porcent(currentBits,totalBits))+'%\n'
     msg += '⚡️Speed: '+sizeof_fmt(speed)+'/s\n'
     msg += '⏳️ETA: '+str(datetime.timedelta(seconds=int(time)))+'s\n'
-    msg += text_progres(currentBits,totalBits)+'\n'
 
     return msg
 def createCompresing(filename,filesize,splitsize):
@@ -83,7 +81,8 @@ def createFileMsg(filename,files):
         for f in files:
             url = urllib.parse.unquote(f['directurl'],encoding='utf-8', errors='replace')
             #msg+= '<a href="'+f['url']+'">🔗' + f['name'] + '🔗</a>'
-            msg+= "<a href='"+url+"'>🔗"+f['name']+'🔗</a>\n'
+            #msg+= "<a href='"+url+"'>🔗"+f['name']+'🔗</a>\n'
+            msg+= "<a"+url+"🔗</a>\n'
         return msg
     return ''
 
