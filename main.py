@@ -280,7 +280,7 @@ def onmessage(update,bot:ObigramClient):
         except:pass
 
         # comandos de admin
-        if '/adduser' in msgText:
+        if '/add' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -294,7 +294,7 @@ def onmessage(update,bot:ObigramClient):
             else:
                 bot.sendMessage(update.message.chat.id,'❌No Tiene Permiso❌')
             return
-        if '/banuser' in msgText:
+        if '/ban' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -311,7 +311,7 @@ def onmessage(update,bot:ObigramClient):
             else:
                 bot.sendMessage(update.message.chat.id,'❌No Tiene Permiso❌')
             return
-        if '/getdb' in msgText:
+        if '/db' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 bot.sendMessage(update.message.chat.id,'Base De Datos👇')
@@ -333,7 +333,7 @@ def onmessage(update,bot:ObigramClient):
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                 bot.sendMessage(update.message.chat.id,statInfo)
                 return
-        if '/zips' in msgText:
+        if '/zipslaes' in msgText:
             getUser = user_info
             if getUser:
                 try:
@@ -346,7 +346,7 @@ def onmessage(update,bot:ObigramClient):
                 except:
                    bot.sendMessage(update.message.chat.id,'❌Error en el comando /zips size❌')
                 return
-        if '/acc' in msgText:
+        if '/acclaes' in msgText:
             try:
                 account = str(msgText).split(' ',2)[1].split(',')
                 user = account[0]
@@ -362,7 +362,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /account user,password❌')
             return
-        if '/host' in msgText:
+        if '/hostlaes' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 host = cmd[1]
@@ -376,7 +376,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /host moodlehost❌')
             return
-        if '/repo' in msgText:
+        if '/repolaes' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 repoid = int(cmd[1])
@@ -390,7 +390,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /repo id❌')
             return
-        if '/up' in msgText:
+        if '/uplaes' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 type = cmd[1]
@@ -440,8 +440,7 @@ def onmessage(update,bot:ObigramClient):
         thread.store('msg',message)
 
         if '/start' in msgText:
-            start_msg = 'Bienvenido 👋🏻 a FreeDowload\n\n'
-            start_msg+= 'Desarrollador: @Stvz20\n'
+            start_msg = 'Bienvenid@ 👋🏻\n'
             start_msg+= 'Eres nuestra razon de ser 😊 Gracias por Elegirnos 😊❤️\n'
             bot.editMessageText(message,start_msg)
         elif '/file_view' == msgText and user_info['cloudtype']=='moodle':
@@ -552,10 +551,10 @@ def onmessage(update,bot:ObigramClient):
 
 
 def main():
-    bot_token = os.environ.get('bot_token')
+    bot_token = os.environ.get('token')
 
     #set in debug
-    bot_token = '5472143789:AAHO2bX7sqlKGR_rfnCWYIImbozxh_PIwSk'
+    #bot_token = '5472143789:AAHO2bX7sqlKGR_rfnCWYIImbozxh_PIwSk'
 
     bot = ObigramClient(bot_token)
     bot.onMessage(onmessage)
