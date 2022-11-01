@@ -40,7 +40,7 @@ def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
     msg+= '⏳️ETA: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     if tid!='':
-        msg+= '/cancelar_' + tid
+        msg+= '/cancel_' + tid
     return msg
 def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
     msg = '⏫ Subiendo Archivo(s)☁... \n'
