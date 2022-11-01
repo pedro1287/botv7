@@ -82,7 +82,6 @@ def createFileMsg(filename,files):
             url = urllib.parse.unquote(f['directurl'],encoding='utf-8', errors='replace')
             #msg+= '<a href="'+f['url']+'">🔗' + f['name'] + '🔗</a>'
             #msg+= "<a href='"+url+"'>🔗"+f['name']+'🔗</a>\n'
-            msg+= "<a"+url+"🔗</a>\n'
         return msg
     return ''
 
