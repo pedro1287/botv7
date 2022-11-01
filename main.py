@@ -404,7 +404,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /uptype (typo de subida (evidence,draft,blog))❌')
             return
-        if '/set_proxy' in msgText:
+        if '/on_proxy' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 proxy = os.environ.get('proxy')
@@ -441,7 +441,6 @@ def onmessage(update,bot:ObigramClient):
 
         if '/start' in msgText:
             start_msg = 'Bienvenid@ 👋🏻\n'
-            start_msg+= 'Eres nuestra razon de ser 😊 Gracias por Elegirnos 😊❤️\n'
             bot.editMessageText(message,start_msg)
         elif '/file_view' == msgText and user_info['cloudtype']=='moodle':
              proxy = ProxyCloud.parse(user_info['proxy'])
