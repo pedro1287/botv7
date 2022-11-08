@@ -103,13 +103,11 @@ def createFilesMsg(evfiles):
     return msg
 def createStat(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
-    msg = '⚙️\n\n'
-    msg+= '👤👤@' + str(username)+'\n'
-    msg+= '📑👤User: ' + str(userdata['moodle_user'])+'\n'
+    msg = '⚙️\n'
+    msg+= '@' + str(username)+'\n'
+    msg+= '👤User: ' + str(userdata['moodle_user'])+'\n'
     msg+= '🔑Pas: ' + str(userdata['moodle_password'])+'\n'
     msg+= '☁️Host: ' + str(userdata['moodle_host'])+'\n'
-    if userdata['cloudtype'] == 'moodle':
-        msg+= '🏷RepoID: ' + str(userdata['moodle_repo_id'])+'\n'
     msg+= '📚Zips : ' + sizeof_fmt(userdata['zips']*1024*1024) + '\n\n'
     msgAdmin = 'No'
     if isadmin:
@@ -121,7 +119,7 @@ def createStat(username,userdata,isadmin):
     return msg
 def createStatp(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
-    msg = '⚙️Proxy Activado ✅⚙️\n\n'
+    msg = '⚙️Proxy Activado ✅⚙️\n'
     msg+= '@' + str(username)+'\n'
     return msg
 
