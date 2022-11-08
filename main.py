@@ -270,7 +270,7 @@ def onmessage(update,bot:ObigramClient):
                 user_info = jdb.get_user(username)
                 jdb.save()
         else:
-            mensaje = "❌No tienes Acceso❌.\nEste bot ha Sido migrado a otro para un mejor funcionamiento👉👉👉👉 @CloudDownloadFreee_bot Por favor Contacta con: @Stvz20 para su acceso\n"
+            mensaje = "❌No tienes Acceso❌.\nContacta con: @Stvz20 para su acceso\n"
             intento_msg = "💢El usuario @"+username+ " ha intentando usar el bot sin permiso💢"
             bot.sendMessage(update.message.chat.id,mensaje)
             bot.sendMessage(5416296262,intento_msg)
@@ -545,7 +545,7 @@ def onmessage(update,bot:ObigramClient):
             #    import asyncio
             #    asyncio.run(tlmedia.download_media(api_id,api_hash,bot_token,chat_id,message_id))
             #    return
-            bot.editMessageText(message,'👉🏻Envie enlaces para procesar👈🏻')
+            bot.editMessageText(message,'🚫Envie enlaces para procesar👈🏻🚫')
     except Exception as ex:
            print(str(ex))
 
@@ -554,7 +554,7 @@ def main():
     bot_token = '5403420459:AAHxHMbx37A3ibFGK0VpS-n9Zgh82Itnq90'
 
     #set in debug
-    #bot_token = '5472143789:AAHO2bX7sqlKGR_rfnCWYIImbozxh_PIwSk'
+    #bot_token = '5523268271:AAExqO_0ICDrl3oOQ4shygzAE-BzG0z_5M4'
 
     bot = ObigramClient(bot_token)
     bot.onMessage(onmessage)
