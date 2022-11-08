@@ -327,7 +327,7 @@ def onmessage(update,bot:ObigramClient):
             bot.sendMessage(update.message.chat.id,tuto.read())
             tuto.close()
             return
-        if '/infohjlhvg' in msgText:
+        if '/info' in msgText:
             getUser = user_info
             if getUser:
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
@@ -346,7 +346,7 @@ def onmessage(update,bot:ObigramClient):
                 except:
                    bot.sendMessage(update.message.chat.id,'❌Error en el comando /zips size❌')
                 return
-        if '/acclaes' in msgText:
+        if '/acc' in msgText:
             try:
                 account = str(msgText).split(' ',2)[1].split(',')
                 user = account[0]
@@ -407,7 +407,7 @@ def onmessage(update,bot:ObigramClient):
         if '/on_proxy' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
-                proxy = os.environ.get('proxy')
+                proxy = 'socks5://KIDHKHYEJHJHGDYGJIGIGEYHIDIIRIGILGGJKG'
                 getUser = user_info
                 if getUser:
                     getUser['proxy'] = proxy
