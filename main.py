@@ -360,7 +360,7 @@ def onmessage(update,bot:ObigramClient):
                     statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                     bot.sendMessage(update.message.chat.id,statInfo)
             except:
-                bot.sendMessage(update.message.chat.id,'❌Error en el comando /account user,password❌')
+                bot.sendMessage(update.message.chat.id,'🚫Error, La forma correcta es /acc user,pasw')
             return
         if '/hostlaes' in msgText:
             try:
