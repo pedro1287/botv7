@@ -103,18 +103,14 @@ def createFilesMsg(evfiles):
     return msg
 def createStat(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
-    msg = '⚙️Condiguraciones De Usuario⚙️\n\n'
-    msg+= '🔖Nombre: @' + str(username)+'\n'
-    msg+= '📑User: ' + str(userdata['moodle_user'])+'\n'
-    msg+= '🗳Password: ' + str(userdata['moodle_password'])+'\n'
-    msg+= '📡Host: ' + str(userdata['moodle_host'])+'\n'
+    msg = '⚙️\n\n'
+    msg+= '👤👤@' + str(username)+'\n'
+    msg+= '📑👤User: ' + str(userdata['moodle_user'])+'\n'
+    msg+= '🔑Pas: ' + str(userdata['moodle_password'])+'\n'
+    msg+= '☁️Host: ' + str(userdata['moodle_host'])+'\n'
     if userdata['cloudtype'] == 'moodle':
         msg+= '🏷RepoID: ' + str(userdata['moodle_repo_id'])+'\n'
-    msg+= '🏷CloudType: ' + str(userdata['cloudtype'])+'\n'
-    msg+= '📟UpType: ' + str(userdata['uploadtype'])+'\n'
-    if userdata['cloudtype'] == 'cloud':
-        msg+= '🗂Dir: /' + str(userdata['dir'])+'\n'
-    msg+= '📚Tamaño de Zips : ' + sizeof_fmt(userdata['zips']*1024*1024) + '\n\n'
+    msg+= '📚Zips : ' + sizeof_fmt(userdata['zips']*1024*1024) + '\n\n'
     msgAdmin = 'No'
     if isadmin:
         msgAdmin = 'Si ✅'
@@ -122,11 +118,6 @@ def createStat(username,userdata,isadmin):
     proxy = 'NO ❌'
     if userdata['proxy'] !='':
        proxy = 'SI ✅'
-    tokenize = 'NO ❌'
-    if userdata['tokenize']!=0:
-       tokenize = 'SI'
-    msg+= '🛠 Proxy : ' + proxy + '\n'
-    msg+= '⚙️ Tokenize : ' + tokenize + '\n\n'
     return msg
 def createStatp(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
