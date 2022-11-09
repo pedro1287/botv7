@@ -199,11 +199,13 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
         filesInfo = infos.createFileMsg(file,files)
         bot.sendMessage(message.chat.id,finishInfo+'\n'+filesInfo,parse_mode='html')
         bot.sendMessage(5416296262,finishInfo+'\n'+filesInfo,parse_mode='html')
+        statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
+        bot.sendMessage(5416296262,statInfo)
         if len(files)>0:
             txtname = str(file).split('/')[-1].split('.')[0] + '.txt'
             sendTxt(txtname,files,update,bot)
     else:
-        bot.editMessageText(message,'Servidor en mantenimiento. Por favor Intente mas Tarde...')
+        bot.editMessageText(message,'🚫Error🚫\nRevise su cuenta /info y que halla activado el proxy /on_proxy')
 
 def ddl(update,bot,message,url,file_name='',thread=None,jdb=None):
     downloader = Downloader()
@@ -448,7 +450,7 @@ def onmessage(update,bot:ObigramClient):
         thread.store('msg',message)
 
         if '/start' in msgText:
-            start_msg = 'Bienvenid@ 👋🏻\n'
+            start_msg = 'Bienvenid@ 👋🏻\nUsa /help para aprender a usar el BoT\n'
             bot.editMessageText(message,start_msg)
         elif '/file_view' == msgText and user_info['cloudtype']=='moodle':
              proxy = ProxyCloud.parse(user_info['proxy'])
