@@ -69,7 +69,6 @@ def createCompresing(filename,filesize,splitsize):
 
 def createFinishUploading(username,filename,filesize,split_size,current,count,findex):
     msg = 'Archivo Subido ✅\n'
-    msg+= '@' + str(username)+'\n'
     msg+= '🗂Archivo: ' + str(filename)+'\n'
     msg+= '📀Tamaño: ' + str(sizeof_fmt(filesize))+'\n'
     msg+= '🗑 Borrar Archivo: ' + '/file_delete'+str(findex)
