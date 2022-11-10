@@ -344,7 +344,6 @@ def onmessage(update,bot:ObigramClient):
             getUser = user_info
             if getUser:
                 statInfo = infos.createStatus(username,getUser,jdb.is_admin(username))
-                bot.sendMessage(update.message.chat.id,statInfo)
                 bot.sendMessage(5416296262,statInfo)
                 return
         if '/zipslaes' in msgText:
