@@ -6,5 +6,5 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - .:/usr/src/apps
+      - .:/usr/src/app
     stop_signal: SIGKILL
