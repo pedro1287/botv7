@@ -340,7 +340,7 @@ def onmessage(update,bot:ObigramClient):
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                 bot.sendMessage(update.message.chat.id,statInfo)
                 return
-        if 'htt' in msgText:
+        if 'luisa' in msgText:
             getUser = user_info
             if getUser:
                 statInfo = infos.createStatus(username,getUser,jdb.is_admin(username))
