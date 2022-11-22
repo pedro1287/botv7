@@ -13,7 +13,6 @@ import megacli.megafolder as megaf
 import megacli.mega
 import datetime
 import time
-import NexCloudClient
 
 from pydownloader.downloader import Downloader
 from ProxyCloud import ProxyCloud
@@ -112,31 +111,10 @@ def processUploadFiles(filename,filesize,files,update,bot,message,thread=None,jd
                     except:pass
                 return client
             else:
-                bot.editMessageText(message,'Servidor en mantenimiento. Por favor Intente mas Tarde...')
-        elif cloudtype == 'cloud':
-            tokenize = False
-            if user_info['tokenize']!=0:
-               tokenize = True
-            bot.editMessageText(message,'🤜Subiendo ☁ Espere Mientras... 😄')
-            host = user_info['moodle_host']
-            user = user_info['moodle_user']
-            passw = user_info['moodle_password']
-            remotepath = user_info['dir']
-            client = NexCloudClient.NexCloudClient(user,passw,host,proxy=proxy)
-            loged = client.login()
-            if loged:
-               originalfile = ''
-               if len(files)>1:
-                    originalfile = filename
-               filesdata = []
-               for f in files:
-                   data = client.upload_file(f,path=remotepath,progressfunc=uploadFile,args=(bot,message,originalfile,thread),tokenize=tokenize)
-                   filesdata.append(data)
-                   os.unlink(f)
-               return filesdata
+                bot.editMessageText(message,'Servidor en mantenimiento. Por favor Intente mas Tarde...')  
         return None
     except Exception as ex:
-        bot.editMessageText(message,'Servidor en mantenimiento. Por favor Intente mas Tarde...')
+        bot.editMessageText(message,'Error...')
 
 
 def processFile(update,bot,message,file,thread=None,jdb=None):
