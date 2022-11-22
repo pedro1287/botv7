@@ -1,7 +1,6 @@
 requests
 requests[socks]
 bs4
-socks
 user_agent
 youtube_dl
 mega.py
