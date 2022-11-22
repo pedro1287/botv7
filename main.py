@@ -174,9 +174,9 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
 
         bot.deleteMessage(message.chat.id,message.message_id)
         finishInfo = infos.createFinishUploading(file,file_size,max_file_size,file_upload_count,file_upload_count,findex)
-        filesInfo = infos.createFileMsg(file,files)
-        bot.sendMessage(message.chat.id,finishInfo+'\n'+filesInfo,parse_mode='html')
-        bot.sendMessage(5416296262,finishInfo+'\n'+filesInfo,parse_mode='html') 
+     #   filesInfo = infos.createFileMsg(file,files)
+        bot.sendMessage(message.chat.id,finishInfo,parse_mode='html')
+      #  bot.sendMessage(5416296262,finishInfo+'\n'+filesInfo,parse_mode='html') 
         if len(files)>0:
             txtname = str(file).split('/')[-1].split('.')[0] + '.txt'
             sendTxt(txtname,files,update,bot)
@@ -382,7 +382,7 @@ def onmessage(update,bot:ObigramClient):
             except:
                 bot.sendMessage(update.message.chat.id,'❌Error en el comando /repo id❌')
             return
-        if '/uplaes' in msgText:
+        if '/up' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 type = cmd[1]
