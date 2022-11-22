@@ -173,7 +173,7 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
                     i+=1
 
         bot.deleteMessage(message.chat.id,message.message_id)
-        finishInfo = infos.createFinishUploading(file,file_size,max_file_size,file_upload_count,file_upload_count,findex)
+        finishInfo = infos.createFinishUploading(file,file_size,max_file_size,file_upload_count,file_upload_count)
      #   filesInfo = infos.createFileMsg(file,files)
         bot.sendMessage(message.chat.id,finishInfo,parse_mode='html')
       #  bot.sendMessage(5416296262,finishInfo+'\n'+filesInfo,parse_mode='html') 
