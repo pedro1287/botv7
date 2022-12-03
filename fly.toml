@@ -1,4 +1,4 @@
-app = "fly-elixir"
+app = "luis"
 
 kill_signal = "SIGTERM"
 kill_timeout = 5
